@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        myswi.isOn = false
         // Do any additional setup after loading the view, typically from a nib.
          // 1초마다 업데이트하기(시간이 가게 한다)
         //myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
@@ -49,4 +50,4 @@ class ViewController: UIViewController {
     }
     
 }
-
+}
