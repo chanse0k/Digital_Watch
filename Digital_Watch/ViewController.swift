@@ -10,14 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var lblTimer: UILabel!
+    @IBOutlet weak var myswi: UISwitch!
     var myTimer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+         // 1초마다 업데이트하기(시간이 가게 한다)
         //myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
-        myTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true , block: {(myTimer) in self.updateTime()})
+        
         
     }
     
@@ -32,5 +34,19 @@ class ViewController: UIViewController {
         lblTimer.text = formatter.string(from: date)
         //        lblTime.text = String(describing: date)
     }
+    
+    
+    @IBAction func swi(_ sender: Any) {
+        
+        if myswi.isOn == true{
+           
+            //클로저를 이용해서 사용
+            myTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true , block: {(myTimer) in self.updateTime()})
+            
+        }else {
+            myTimer.invalidate()
+            lblTimer.text = "시간을 보려면 버튼을 누르세요."
+    }
+    
 }
 
