@@ -15,7 +15,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        //myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        
+        myTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true , block: {(myTimer) in self.updateTime()})
+        
     }
     
     override func didReceiveMemoryWarning() {
